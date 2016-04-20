@@ -28,8 +28,8 @@ public class Solution {
 
 		nuevaSolucion.setMedia();
 
-		System.out.println("Conjunto inicial: " + mejorConjunto.conjunto + " Media inicial " + mejorConjunto.getMedia());
-		System.out.println("Conjunto nuevo: " + nuevaSolucion.conjunto + " Nueva media " + nuevaSolucion.getMedia());
+//		System.out.println("Conjunto inicial: " + mejorConjunto.conjunto + " Media inicial " + mejorConjunto.getMedia());
+//		System.out.println("Conjunto nuevo: " + nuevaSolucion.conjunto + " Nueva media " + nuevaSolucion.getMedia());
 
 		if (nuevaSolucion.getMedia() >= mejorConjunto.getMedia()) {
 			mejorConjunto = nuevaSolucion;

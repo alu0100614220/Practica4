@@ -11,5 +11,8 @@ public class Practica4 {
 		System.out.println("Decreciente");
 		VorazDecreciente vorazDecreciente = new VorazDecreciente(grafo);
 		vorazDecreciente.solve();
+		System.out.println("GRASP");
+		GRASP grasp = new GRASP(grafo);
+		grasp.solve();
 	}
 }

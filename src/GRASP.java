@@ -9,4 +9,7 @@ public class GRASP {
 		this.conjunto = new Conjunto(grafo);
 		this.solucion = new Solution(grafo);
 	}
+	public void solve(){
+		
+	}
 }
