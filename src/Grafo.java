@@ -4,20 +4,38 @@ import java.io.FileReader;
 
 public class Grafo {
 	public double[][] matriz;
+	public int SIZE;
+	Grafo(int n){
+		this.SIZE = n;
+		matriz = new double[this.SIZE][this.SIZE];
+		double valor;
+		for (int i = 0; i < this.SIZE; i++) {
+			for (int j = i; j < this.SIZE; j++) {
+				if(i == j){
+					matriz[i][j] = Double.NaN;
+				}else{
+					valor = (Math.random()*100) - 50;
+					valor = Math.round(valor*10.0)/10.0;
+					matriz[i][j] = valor;
+					matriz[j][i] = valor;
 
+				}
+			}
+		}
+	};
 	Grafo(String nombre) {
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(nombre));
 			String linea = reader.readLine();
-			int size = Integer.parseInt(linea);
-			matriz = new double[size][size];
+			SIZE = Integer.parseInt(linea);
+			matriz = new double[this.SIZE][this.SIZE];
 			while (reader.ready()) {
 				linea = reader.readLine();
 				System.out.println(linea);
 				String[] fila = linea.split(" ");
 				double[] filaInt = new double[fila.length];
-				for (int i = 0; i < size; i++) {
-					matriz[i][i] = 0;
+				for (int i = 0; i < this.SIZE; i++) {
+					matriz[i][i] = Double.NaN;
 				}
 				for (int i = 0; i < fila.length; i++) {
 					fila[i] = fila[i].replace(',', '.');

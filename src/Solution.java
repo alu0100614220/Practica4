@@ -25,14 +25,15 @@ public class Solution {
 
 	boolean improves(Conjunto nuevaSolucion, Conjunto conjunto) {
 
-		conjunto.setMedia();
+
 		nuevaSolucion.setMedia();
 
-//		System.out.println("Conjunto inicial: " + conjunto.conjunto + " Media inicial " + conjunto.getMedia());
-//		System.out.println("Conjunto nuevo: " + nuevaSolucion.conjunto + " Nueva media " + nuevaSolucion.getMedia());
+		System.out.println("Conjunto inicial: " + mejorConjunto.conjunto + " Media inicial " + mejorConjunto.getMedia());
+		System.out.println("Conjunto nuevo: " + nuevaSolucion.conjunto + " Nueva media " + nuevaSolucion.getMedia());
 
-		if (nuevaSolucion.getMedia() >= conjunto.getMedia()) {
+		if (nuevaSolucion.getMedia() >= mejorConjunto.getMedia()) {
 			mejorConjunto = nuevaSolucion;
+
 			return true;
 		} else {
 			return false;

@@ -15,12 +15,15 @@ public class VorazDecreciente {
 	public void solve() {
 		
 		// Rellenamos el conjunto de testeo
-		for (int i = 0; i < this.grafo.matriz.length; i++) {
+		for (int i = 0; i < this.grafo.SIZE; i++) {
 			this.conjunto.conjunto.add(i);
 		}
 
 		boolean improves = false;
-
+		solucion.vacio = false;
+		conjunto.setMedia();
+		solucion.mejorConjunto = conjunto.clone();
+		
 		for (int i = 0; i < this.conjunto.conjunto.size(); i++) {
 			Conjunto nuevaSolucion = this.conjunto.clone();
 			nuevaSolucion.conjunto.remove(i);
@@ -29,7 +32,8 @@ public class VorazDecreciente {
 			}
 			if (i == this.conjunto.conjunto.size() - 1 && improves) {
 				improves = false;
-				conjunto = solucion.mejorConjunto;
+				conjunto = solucion.mejorConjunto.clone();
+				this.conjunto.setMedia();
 				i = -1;
 			}
 		}

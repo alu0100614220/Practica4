@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Conjunto implements Cloneable {
+public class Conjunto {
 	ArrayList<Integer> conjunto = new ArrayList<Integer>();
 	private double media = 0;
 	Grafo grafo;
@@ -11,8 +11,9 @@ public class Conjunto implements Cloneable {
 	}
 
 	public void setMedia() {
+		
 		int cantidadAristas = conjunto.size() * (conjunto.size() - 1) / 2;
-		boolean[][] visitadas = new boolean[this.grafo.matriz.length][this.grafo.matriz.length];
+		boolean[][] visitadas = new boolean[this.grafo.SIZE][this.grafo.SIZE];
 		media = 0;
 		for (int i = 0; i < conjunto.size(); i++) {
 			for (int j = 0; j < conjunto.size(); j++) {
@@ -25,10 +26,12 @@ public class Conjunto implements Cloneable {
 		}
 		
 		media = media / conjunto.size();
+		
 	}
 
 	public double getMedia() {
 		Collections.sort(this.conjunto);
+		this.media  = Math.round(this.media*10.0)/10.0;
 		return media;
 	}
 
@@ -37,7 +40,7 @@ public class Conjunto implements Cloneable {
 		for (int i = 0; i < conjunto.size(); i++) {
 			copia.conjunto.add(conjunto.get(i));
 		}
-
+		copia.media = this.getMedia();
 		return copia;
 	}
 	
