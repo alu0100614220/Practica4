@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Conjunto implements Cloneable {
 	ArrayList<Integer> conjunto = new ArrayList<Integer>();
@@ -27,6 +28,7 @@ public class Conjunto implements Cloneable {
 	}
 
 	public double getMedia() {
+		Collections.sort(this.conjunto);
 		return media;
 	}
 
@@ -38,4 +40,5 @@ public class Conjunto implements Cloneable {
 
 		return copia;
 	}
+	
 }

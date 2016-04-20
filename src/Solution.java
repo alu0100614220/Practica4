@@ -2,11 +2,9 @@ import java.util.ArrayList;
 
 public class Solution {
 	Grafo grafo;
-	ArrayList<Integer> solucion = new ArrayList<Integer>();
 	double media = 0;
 	boolean vacio = true;
 	Conjunto mejorConjunto;
-	Conjunto conjuntoAspirante;
 
 	public Solution(Grafo grafo) {
 		this.grafo = grafo;
@@ -34,18 +32,8 @@ public class Solution {
 //		System.out.println("Conjunto nuevo: " + nuevaSolucion.conjunto + " Nueva media " + nuevaSolucion.getMedia());
 
 		if (nuevaSolucion.getMedia() >= conjunto.getMedia()) {
-			conjuntoAspirante = nuevaSolucion;
-			if (mejorConjunto == null) {
-				mejorConjunto = conjuntoAspirante;
-				return true;
-
-			} else if (conjuntoAspirante.getMedia() > mejorConjunto.getMedia()) {
-				mejorConjunto = conjuntoAspirante;
-				return true;
-
-			} else {
-				return false;
-			}
+			mejorConjunto = nuevaSolucion;
+			return true;
 		} else {
 			return false;
 		}

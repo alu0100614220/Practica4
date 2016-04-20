@@ -3,27 +3,28 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class Grafo {
-	public int[][] matriz;
+	public double[][] matriz;
 
 	Grafo(String nombre) {
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(nombre));
 			String linea = reader.readLine();
 			int size = Integer.parseInt(linea);
-			matriz = new int[size][size];
+			matriz = new double[size][size];
 			while (reader.ready()) {
 				linea = reader.readLine();
 				System.out.println(linea);
 				String[] fila = linea.split(" ");
-				int[] filaInt = new int[fila.length];
+				double[] filaInt = new double[fila.length];
 				for (int i = 0; i < size; i++) {
 					matriz[i][i] = 0;
 				}
 				for (int i = 0; i < fila.length; i++) {
-					filaInt[i] = Integer.parseInt(fila[i]);
+					fila[i] = fila[i].replace(',', '.');
+					filaInt[i] = Double.parseDouble(fila[i]);
 				}
-				matriz[filaInt[0]][filaInt[1]] = filaInt[2];
-				matriz[filaInt[1]][filaInt[0]] = filaInt[2];
+				matriz[(int)filaInt[0]][(int)filaInt[1]] = filaInt[2];
+				matriz[(int)filaInt[1]][(int)filaInt[0]] = filaInt[2];
 
 			}
 			//this.toString();

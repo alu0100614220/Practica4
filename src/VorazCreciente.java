@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class VorazCreciente {
 	Grafo grafo;
@@ -25,7 +26,7 @@ public class VorazCreciente {
 			}
 		}
 		solucion.vacio = false;
-
+		
 		boolean improves = false;
 
 		for (int i = 0; i < this.grafo.matriz.length; i++) {
@@ -41,7 +42,7 @@ public class VorazCreciente {
 				if (improves) {
 					i = 0;
 					improves = false;
-					this.conjunto = solucion.mejorConjunto;
+//					this.conjunto = solucion.mejorConjunto;
 				}
 
 			}
