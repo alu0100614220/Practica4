@@ -11,7 +11,7 @@ public class Conjunto {
 	}
 
 	public void setMedia() {
-		
+
 		int cantidadAristas = conjunto.size() * (conjunto.size() - 1) / 2;
 		boolean[][] visitadas = new boolean[this.grafo.SIZE][this.grafo.SIZE];
 		media = 0;
@@ -24,14 +24,14 @@ public class Conjunto {
 				}
 			}
 		}
-		
+
 		media = media / conjunto.size();
-		
+
 	}
 
 	public double getMedia() {
 		Collections.sort(this.conjunto);
-		this.media  = Math.round(this.media*10.0)/10.0;
+		this.media = Math.round(this.media * 10.0) / 10.0;
 		return media;
 	}
 
@@ -43,5 +43,20 @@ public class Conjunto {
 		copia.media = this.getMedia();
 		return copia;
 	}
-	
+
+	public boolean equal(Conjunto obj) {
+		if(obj.conjunto.size() != this.conjunto.size()){
+			
+			return false;
+		}else{
+			for(int i = 0; i < this.conjunto.size(); i++){
+				if(obj.conjunto.get(i) != this.conjunto.get(i)){
+					return false;
+				}
+			}
+			
+		}
+		return true;	
+	}
+
 }
