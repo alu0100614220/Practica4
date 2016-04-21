@@ -10,7 +10,7 @@ public class GRASP {
 		this.solucion = new Solution(grafo);
 	}
 	public void solve(){
-		VorazDecreciente xd = new VorazDecreciente(this.grafo);
-		xd.solve5();
+		VorazDecreciente vorazGrasp = new VorazDecreciente(this.grafo);
+		vorazGrasp.solve5();
 	}
 }
