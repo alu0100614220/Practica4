@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class Solucion {
 	Grafo grafo;
@@ -24,10 +23,8 @@ public class Solucion {
 	}
 
 	boolean improves(Conjunto nuevaSolucion) {
-		// System.out.println(this.mejorConjunto + " " +
-		// this.mejorConjunto.getMedia());
-		// System.out.println(nuevaSolucion.conjunto + " " +
-		// nuevaSolucion.getMedia());
+//		System.out.println(this.mejorConjunto + " " + this.mejorConjunto.getMedia());
+//		System.out.println(nuevaSolucion.conjunto + " " + nuevaSolucion.getMedia());
 		if (nuevaSolucion.getMedia() > mejorConjunto.getMedia()) {
 			mejorConjunto = nuevaSolucion;
 

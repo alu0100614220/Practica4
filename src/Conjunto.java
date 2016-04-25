@@ -32,6 +32,7 @@ public class Conjunto {
 	public double getMedia() {
 		this.setMedia();
 		Collections.sort(this.conjunto);
+		
 		this.media = Math.round(this.media * 10.0) / 10.0;
 		return media;
 	}
