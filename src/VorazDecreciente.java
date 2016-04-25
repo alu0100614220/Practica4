@@ -99,7 +99,6 @@ public class VorazDecreciente {
 
 	public boolean contiene(Conjunto conjunto) {
 		
-
 		for (int i = 0; i < mejoresConjuntos.size(); i++) {
 			if (conjunto.equal(mejoresConjuntos.get(i))) {
 				return true;
