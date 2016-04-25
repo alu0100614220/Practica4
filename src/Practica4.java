@@ -50,6 +50,7 @@ public class Practica4 {
 			break;
 		case 2:
 			Grafo grafo = new Grafo("File.txt");
+			N = grafo.SIZE;
 			System.out.println(grafo);
 			prct4.opciones(grafo);
 			break;

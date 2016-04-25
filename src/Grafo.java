@@ -38,7 +38,6 @@ public class Grafo {
 						matriz[i][j] = Double.NaN;
 					} else {
 						linea = reader.readLine();
-						System.out.println(linea);
 						String[] fila = linea.split(" ");
 						fila[0] = fila[0].replace(',', '.');
 						double filaInt = Double.parseDouble(fila[0]);
