@@ -20,9 +20,7 @@ public class MultiArranque {
 		while (i < PRUEBAS) {
 
 			this.voraz.conjunto = this.conjunto.clone();
-			// System.out.println(conjunto + " " + conjunto.getMedia());
 			this.conjunto = this.voraz.solve();
-			// System.out.println(conjunto + " " + conjunto.getMedia());
 			this.solucion.improves(conjunto);
 			this.conjunto = this.conjunto.generaRandom().clone();
 			i++;

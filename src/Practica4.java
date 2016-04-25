@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class Practica4 {
 	static int N = 0;
@@ -9,8 +8,7 @@ public class Practica4 {
 			N += 5;
 			for (int j = 0; j < 5; j++) {
 				Grafo grafo = new Grafo(N);
-				// Grafo grafoPrueba = new Grafo("File.txt");
-				// System.out.println(grafo);
+				
 				System.out.println("-----------------------------");
 				System.out.println("N:\t\t\t" + N);
 				System.out.println("-----------------------------");
