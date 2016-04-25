@@ -1,35 +1,43 @@
 import java.util.ArrayList;
 
 public class Practica4 {
+	static int N = 0;
+	static int ID = 1;
 	public static void main(String[] args) {
-		Grafo grafo = new Grafo(20);
-		//Grafo grafoPrueba = new Grafo("File.txt");
-		System.out.println(grafo);
-		System.out.println("Creciente");
-		VorazCreciente vorazCreciente = new VorazCreciente(grafo);
-		vorazCreciente.solve();
-		System.out.println();
-		System.out.println("Decreciente");
-		VorazDecreciente vorazDecreciente = new VorazDecreciente(grafo);
-		vorazDecreciente.solve();
-		System.out.println("GRASP");
-		GRASP grasp = new GRASP(grafo);
-		grasp.solve();
-//		ArrayList<Conjunto> prueba = new ArrayList<Conjunto>();
-//		Conjunto c1 = new Conjunto(grafo);
-//		c1.conjunto.add(1);
-//		c1.conjunto.add(2);
-//		
-//		Conjunto c2 = new Conjunto(grafo);
-//		c2.conjunto.add(1);
-//		c2.conjunto.add(2);
-//		prueba.add(c1);
-//		if(prueba.contains(c2)){
-//			System.out.println("lotienexd");
-//		}
-//		if (prueba.get(0).equals(c2)) {
-//			System.out.println("xd");
-//		}
-//		
+		
+		for (int i = 0; i < 10; i++) {
+			N += 5;
+			for (int j = 0; j < 5; j++) {
+				Grafo grafo = new Grafo(N);
+				// Grafo grafoPrueba = new Grafo("File.txt");
+				// System.out.println(grafo);
+				System.out.println("-----------------------------");
+				System.out.println("N:\t\t\t" + N);
+				System.out.println("-----------------------------");
+				System.out.println("ID:\t\t\t" + ID);
+				ID++;
+				VorazCreciente vorazCreciente = new VorazCreciente(grafo);
+				Conjunto vorazC = vorazCreciente.solve();
+				System.out.println("Creciente \t\t" + vorazC.getMedia());
+
+				VorazDecreciente vorazDecreciente = new VorazDecreciente(grafo);
+				Conjunto vorazD = vorazDecreciente.solve();
+				System.out.println("Decreciente \t\t" + vorazD.getMedia());
+
+				GRASP grasp = new GRASP(grafo);
+				Conjunto graspC = grasp.solve();
+				System.out.println("GRASP \t\t\t" + graspC.getMedia());
+
+				VNS vns = new VNS(grafo);
+				Conjunto vnsC = vns.solve();
+				System.out.println("VNS \t\t\t" + vnsC.getMedia());
+				
+				MultiArranque multi = new MultiArranque(grafo);
+				Conjunto multiC = multi.solve();
+				System.out.println("MultiArranque \t\t" + multiC.getMedia());
+
+			}
+
+		}
 	}
 }

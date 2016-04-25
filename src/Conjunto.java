@@ -30,6 +30,7 @@ public class Conjunto {
 	}
 
 	public double getMedia() {
+		this.setMedia();
 		Collections.sort(this.conjunto);
 		this.media = Math.round(this.media * 10.0) / 10.0;
 		return media;
@@ -45,18 +46,41 @@ public class Conjunto {
 	}
 
 	public boolean equal(Conjunto obj) {
-		if(obj.conjunto.size() != this.conjunto.size()){
-			
+		if (obj.conjunto.size() != this.conjunto.size()) {
 			return false;
-		}else{
-			for(int i = 0; i < this.conjunto.size(); i++){
-				if(obj.conjunto.get(i) != this.conjunto.get(i)){
+		} else {
+			for (int i = 0; i < this.conjunto.size(); i++) {
+				if (obj.conjunto.get(i) != this.conjunto.get(i)) {
 					return false;
 				}
 			}
-			
+
 		}
-		return true;	
+		return true;
 	}
 
+	public String toString() {
+		return this.conjunto.toString();
+	}
+
+	public Conjunto generaRandom() {
+
+		Conjunto random = new Conjunto(this.grafo);
+		for (int i = 0; i < this.grafo.SIZE; i++) {
+			int si = (int) (Math.random() * 2);
+			if (si == 1) {
+				random.conjunto.add(i);
+			}
+
+		}
+		return random;
+	}
+
+	public Conjunto swap(int i, int j) {
+		Conjunto auxC = this.clone();
+		int aux = auxC.conjunto.get(i);
+		auxC.conjunto.set(i, auxC.conjunto.get(j));
+		auxC.conjunto.set(j, aux);
+		return auxC;
+	}
 }

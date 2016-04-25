@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
-public class Solution {
+public class Solucion {
 	Grafo grafo;
 	double media = 0;
 	boolean vacio = true;
 	Conjunto mejorConjunto;
 
-	public Solution(Grafo grafo) {
+	public Solucion(Grafo grafo) {
 		this.grafo = grafo;
 		mejorConjunto = new Conjunto(grafo);
 
@@ -23,15 +23,12 @@ public class Solution {
 		return false;
 	}
 
-	boolean improves(Conjunto nuevaSolucion, Conjunto conjunto) {
-
-
-		nuevaSolucion.setMedia();
-//
-//		System.out.println("Conjunto inicial: " + mejorConjunto.conjunto + " Media inicial " + mejorConjunto.getMedia());
-//		System.out.println("Conjunto nuevo: " + nuevaSolucion.conjunto + " Nueva media " + nuevaSolucion.getMedia());
-
-		if (nuevaSolucion.getMedia() >= mejorConjunto.getMedia()) {
+	boolean improves(Conjunto nuevaSolucion) {
+		// System.out.println(this.mejorConjunto + " " +
+		// this.mejorConjunto.getMedia());
+		// System.out.println(nuevaSolucion.conjunto + " " +
+		// nuevaSolucion.getMedia());
+		if (nuevaSolucion.getMedia() > mejorConjunto.getMedia()) {
 			mejorConjunto = nuevaSolucion;
 
 			return true;

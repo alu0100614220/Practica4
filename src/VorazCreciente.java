@@ -4,15 +4,12 @@ import java.util.Collections;
 public class VorazCreciente {
 	Grafo grafo;
 	Conjunto conjunto;
-	Solution solucion;
+	Solucion solucion;
 
 	public VorazCreciente(Grafo grafo) {
 		this.grafo = grafo;
 		conjunto = new Conjunto(grafo);
-		solucion = new Solution(grafo);
-	}
-
-	public void solve() {
+		solucion = new Solucion(grafo);
 		for (int i = 0; i < this.grafo.SIZE; i++) {
 			for (int j = 0; j < this.grafo.SIZE; j++) {
 				if (i != j) {
@@ -26,9 +23,12 @@ public class VorazCreciente {
 			}
 		}
 		solucion.vacio = false;
-		conjunto.setMedia();
 		solucion.mejorConjunto = conjunto.clone();
-		
+
+	}
+
+	public Conjunto solve() {
+
 		boolean improves = false;
 
 		for (int i = 0; i < this.grafo.SIZE; i++) {
@@ -36,7 +36,7 @@ public class VorazCreciente {
 				Conjunto nuevoConjunto = conjunto.clone();
 				nuevoConjunto.conjunto.add(i);
 
-				if (solucion.improves(nuevoConjunto, conjunto)) {
+				if (solucion.improves(nuevoConjunto)) {
 					improves = true;
 				}
 			}
@@ -45,13 +45,11 @@ public class VorazCreciente {
 					i = 0;
 					improves = false;
 					this.conjunto = solucion.mejorConjunto.clone();
-					this.conjunto.setMedia();
 				}
 
 			}
 		}
-		System.out.println(conjunto.conjunto + " Media: " + conjunto.getMedia());
-
-		
+//		System.out.println(conjunto.conjunto + " Media: " + conjunto.getMedia());
+		return conjunto;
 	}
 }
